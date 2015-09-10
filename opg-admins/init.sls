@@ -52,8 +52,7 @@ admin-{{ user}}-key-{{ loop.index0 }}:
   {% endfor %}
 
 /home/{{ user }}/.bashrc:
-  file:
-    - append
+  file.managed:
     - template: jinja
     - source: salt://opg-admins/templates/bashrc
     - user: {{ user }}
